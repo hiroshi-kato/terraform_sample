@@ -1,3 +1,8 @@
+module "web_server" {
+  source        = "./http_server"
+  instance_type = "t3.micro"
+}
+
 # プロバイダ
 # aws,gcp,azureなどの設定を定義する
 provider "aws" {
@@ -66,5 +71,5 @@ resource "aws_instance" "example" {
 
 # 出力値
 output "example_instance_id" {
-  value = aws_instance.example.public_dns
+  value = module.web_server.public_dns
 }
