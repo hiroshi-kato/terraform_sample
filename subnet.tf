@@ -1,0 +1,19 @@
+resource "aws_subnet" "public" {
+  vpc_id                  = aws_vpc.example.id
+  cidr_block              = "10.0.0.0/24"
+  map_public_ip_on_launch = true
+  availability_zone       = "ap-northeast-1a"
+  tags = {
+    Name = "example_public_subnet"
+  }
+}
+
+resource "aws_subnet" "private" {
+  vpc_id                  = aws_vpc.example.id
+  cidr_block              = "10.0.64.0/24"
+  availability_zone       = "ap-northeast-1a"
+  map_public_ip_on_launch = false
+  tags = {
+    Name = "private"
+  }
+}
