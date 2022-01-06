@@ -1,19 +1,39 @@
-resource "aws_subnet" "public" {
+resource "aws_subnet" "public_0" {
   vpc_id                  = aws_vpc.example.id
-  cidr_block              = "10.0.0.0/24"
-  map_public_ip_on_launch = true
+  cidr_block              = "10.0.1.0/24"
   availability_zone       = "ap-northeast-1a"
+  map_public_ip_on_launch = true
   tags = {
-    Name = "example_public_subnet"
+    Name = "example_public_subnet_0"
   }
 }
 
-resource "aws_subnet" "private" {
+resource "aws_subnet" "public_1" {
   vpc_id                  = aws_vpc.example.id
-  cidr_block              = "10.0.64.0/24"
+  cidr_block              = "10.0.2.0/24"
+  availability_zone       = "ap-northeast-1c"
+  map_public_ip_on_launch = true
+  tags = {
+    Name = "example_public_subnet_1"
+  }
+}
+
+resource "aws_subnet" "private_0" {
+  vpc_id                  = aws_vpc.example.id
+  cidr_block              = "10.0.65.0/24"
   availability_zone       = "ap-northeast-1a"
   map_public_ip_on_launch = false
   tags = {
-    Name = "private"
+    Name = "private_0"
+  }
+}
+
+resource "aws_subnet" "private_1" {
+  vpc_id                  = aws_vpc.example.id
+  cidr_block              = "10.0.66.0/24"
+  availability_zone       = "ap-northeast-1c"
+  map_public_ip_on_launch = false
+  tags = {
+    Name = "private_1"
   }
 }
