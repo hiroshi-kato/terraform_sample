@@ -1,9 +1,9 @@
 resource "aws_lb" "example" {
-  name                       = "example"
-  load_balancer_type         = "application"
-  internal                   = false
-  idle_timeout               = 60
-  enable_deletion_protection = true
+  name               = "example"
+  load_balancer_type = "application"
+  internal           = false
+  idle_timeout       = 60
+  # enable_deletion_protection = true
 
   subnets = [
     aws_subnet.public_0.id,

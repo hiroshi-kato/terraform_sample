@@ -101,6 +101,7 @@ resource "aws_s3_bucket_public_access_block" "private" {
 
 resource "aws_s3_bucket" "public" {
   bucket = "public-pragmatic-terraform-mamedaifuku"
+  force_destroy = true
   acl    = "public-read"
 
   cors_rule {
